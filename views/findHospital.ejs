@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Hospitals</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="./Images/favicon.png" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      .search-bar {
+        margin-top: 50px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .search-input {
+        width: 50%;
+        padding: 10px;
+        margin-right: 5px;
+        outline: none;
+        border: 2px solid white;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper-section">
+      <h1 class="title text-center">Nearest Hospitals</h1>
+      <div class="search-bar">
+        <p style="color: aquamarine; font-size: 20px">Search Hospital :</p>
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Search for hospitals..."
+          onkeyup="searchHospitals()"
+        />
+      </div>
+      <div class="card-wrapper">
+        <div class="card" style="width: 20rem">
+          <img
+            src="https://img.etimg.com/thumb/msid-98975531,width-300,height-225,imgsize-101780,resizemode-75/hospital-new.jpg"
+            class="card-img-top"
+            alt="Hospital 1"
+            style="height: 200px"
+          />
+          <div class="card-body">
+            <h3 class="card-title" style="text-transform: capitalize">
+              Yashoda Hospitals - Somajiguda
+            </h3>
+            <div class="card-text">
+              <p>
+                6-3-905, Raj Bhavan Rd, Matha Nagar, Somajiguda, Hyderabad,
+                Telangana 500082
+              </p>
+              <p>
+                Phone:
+                <a
+                  href="tel:+91 6305 279018"
+                  style="color: white; text-decoration: none"
+                  >+91 63052 79018</a
+                >
+              </p>
+              <p style="margin-top: 2px; color: red">Open 24 hours</p>
+            </div>
+            <div style="display: flex; gap: 20px">
+              <a
+                href="https://maps.app.goo.gl/GNbJ2ygnVGqHJjMp8"
+                class="btn"
+                target="_blank"
+                >Location</a
+              >
+              <a
+                href="https://www.yashodahospitals.com/location/somajiguda//?utm_source=Google-Business-Page&utm_medium=Somajiguda"
+                class="btn"
+                target="_blank"
+                >Visit Website</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="card" style="width: 20rem">
+          <img
+            src="https://img.etimg.com/thumb/msid-98975531,width-300,height-225,imgsize-101780,resizemode-75/hospital-new.jpg"
+            class="card-img-top"
+            alt="Hospital 2"
+            style="height: 200px"
+          />
+          <div class="card-body">
+            <h3 class="card-title" style="text-transform: capitalize">
+              Care Hospitals - Banjara Hills
+            </h3>
+            <div class="card-text">
+              <p>
+                Rd Number 1, Prem Nagar, Banjara Hills, Hyderabad, Telangana
+                500034
+              </p>
+              <p>
+                Phone:
+                <a
+                  href="tel:+91 6305 279018"
+                  style="color: white; text-decoration: none"
+                  >+91 63052 79018</a
+                >
+              </p>
+              <p style="margin-top: 2px; color: red">Open 24 hours</p>
+            </div>
+            <div style="display: flex; gap: 20px">
+              <a
+                href="https://maps.app.goo.gl/xPZKxGWTVbNihfcp9"
+                class="btn"
+                target="_blank"
+                >Location</a
+              >
+              <a
+                href="https://www.carehospitals.com/hospital-detail/care-hospital-banjara-hills"
+                class="btn"
+                target="_blank"
+                >Visit Website</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="card" style="width: 20rem">
+          <img
+            src="https://img.etimg.com/thumb/msid-98975531,width-300,height-225,imgsize-101780,resizemode-75/hospital-new.jpg"
+            class="card-img-top"
+            alt="Hospital 3"
+            style="height: 200px"
+          />
+          <div class="card-body">
+            <h3 class="card-title" style="text-transform: capitalize">
+              Apollo Hospitals - Jubilee Hills
+            </h3>
+            <div class="card-text">
+              <p>
+                Rd Number 72, Film Nagar, Hyderabad, Telangana 500033 Phone:
+              </p>
+              <p>
+                <a
+                  href="tel:+91 6305 279018"
+                  style="color: white; text-decoration: none"
+                  >+91 63052 79018</a
+                >
+              </p>
+              <p style="margin-top: 2px; color: red">Open 24 hours</p>
+            </div>
+            <div style="display: flex; gap: 20px">
+              <a
+                href="https://maps.app.goo.gl/wBDZaBtpUEvBFbWk9"
+                class="btn"
+                target="_blank"
+                >Location</a
+              >
+              <a
+                href="https://www.apollohospitals.com/hyderabad/"
+                class="btn"
+                target="_blank"
+                >Visit Website</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="card" style="width: 20rem">
+          <img
+            src="https://img.etimg.com/thumb/msid-98975531,width-300,height-225,imgsize-101780,resizemode-75/hospital-new.jpg"
+            class="card-img-top"
+            alt="Hospital 4"
+            style="height: 200px"
+          />
+          <div class="card-body">
+            <h3 class="card-title" style="text-transform: capitalize">
+              KIMS Hospitals, Gachibowli
+            </h3>
+            <div class="card-text">
+              <p>
+                45, 7-56/19, Prashant Hills, Radhe Nagar, Gachibowli, Rai Durg,
+                Telangana 500032
+              </p>
+              <p>
+                Phone:
+                <a
+                  href="tel:+91 6305 279018"
+                  style="color: white; text-decoration: none"
+                  >+91 63052 79018</a
+                >
+              </p>
+              <p style="margin-top: 2px; color: red">Open 24 hours</p>
+            </div>
+            <div style="display: flex; gap: 20px">
+              <a
+                href="https://maps.app.goo.gl/CTAoF99GzhPAvAZf9"
+                class="btn"
+                target="_blank"
+                >Location</a
+              >
+              <a
+                href="https://www.kimshospitals.com/gachibowli/?utm_source=gmb&utm_medium=organic&utm_campaign=maps"
+                class="btn"
+                target="_blank"
+                >Visit Website</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="width: 20rem">
+          <img
+            src="https://img.etimg.com/thumb/msid-98975531,width-300,height-225,imgsize-101780,resizemode-75/hospital-new.jpg"
+            class="card-img-top"
+            alt="Hospital 1"
+            style="height: 200px"
+          />
+          <div class="card-body">
+            <h3 class="card-title" style="text-transform: capitalize">
+              Government Hospital
+            </h3>
+            <div class="card-text">
+              <p>CMXM+X6H, Ghatkesar, Telangana 501301</p>
+              <p>
+                Phone:
+                <a
+                  href="tel:+91 6305 279018"
+                  style="color: white; text-decoration: none"
+                  >+91 63052 79018</a
+                >
+              </p>
+              <p style="margin-top: 2px; color: red">Open 24 hours</p>
+            </div>
+            <div style="display: flex; gap: 20px">
+              <a
+                href="https://maps.app.goo.gl/nLgUMYYys3uaXhTT7"
+                class="btn"
+                target="_blank"
+                >Location</a
+              >
+              <a href="#" class="btn" target="_blank">Visit Website</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="width: 20rem">
+          <img
+            src="https://img.etimg.com/thumb/msid-98975531,width-300,height-225,imgsize-101780,resizemode-75/hospital-new.jpg"
+            class="card-img-top"
+            alt="Hospital 1"
+            style="height: 200px"
+          />
+          <div class="card-body">
+            <h3 class="card-title" style="text-transform: capitalize">
+              Cure Hospitals
+            </h3>
+            <div class="card-text">
+              <p>
+                5-2, Hyderabad - Warangal Hwy, Pocharam, Hyderabad, Telangana
+                500088
+              </p>
+              <p>
+                Phone:
+                <a
+                  href="tel:+91 6305 279018"
+                  style="color: white; text-decoration: none"
+                  >+91 63052 79018</a
+                >
+              </p>
+              <p style="margin-top: 2px; color: red">Open 24 hours</p>
+            </div>
+            <div style="display: flex; gap: 20px">
+              <a
+                href="https://maps.app.goo.gl/gFUNGcZY6w4CrWTy9"
+                class="btn"
+                target="_blank"
+                >Location</a
+              >
+              <a href="#" class="btn" target="_blank">Visit Website</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="width: 20rem">
+          <img
+            src="https://img.etimg.com/thumb/msid-98975531,width-300,height-225,imgsize-101780,resizemode-75/hospital-new.jpg"
+            class="card-img-top"
+            alt="Hospital 1"
+            style="height: 200px"
+          />
+          <div class="card-body">
+            <h3 class="card-title" style="text-transform: capitalize">
+              Spark Hospitals 
+            </h3>
+            <div class="card-text">
+              <p>
+                Pillar No 51, opp. Hanuman Temple, beside Axis Bank,
+                Peerzadiguda, Hyderabad, Telangana 500039
+              </p>
+              <p>
+                Phone:
+                <a
+                  href="tel:+91 6305 279018"
+                  style="color: white; text-decoration: none"
+                  >+91 63052 79018</a
+                >
+              </p>
+              <p style="margin-top: 2px; color: red">Open 24 hours</p>
+            </div>
+            <div style="display: flex; gap: 20px">
+              <a
+                href="https://maps.app.goo.gl/fAwQPfHYb5sZQUqi7"
+                class="btn"
+                target="_blank"
+                >Location</a
+              >
+              <a href="https://sparkhospitals.in/" class="btn" target="_blank"
+                >Visit Website</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="width: 20rem">
+          <img
+            src="https://img.etimg.com/thumb/msid-98975531,width-300,height-225,imgsize-101780,resizemode-75/hospital-new.jpg"
+            class="card-img-top"
+            alt="Hospital 1"
+            style="height: 200px"
+          />
+          <div class="card-body">
+            <h3 class="card-title" style="text-transform: capitalize">
+              OMNI Hospitals 
+            </h3>
+            <div class="card-text">
+              <p>
+                Plot No.W-11,B-9, Sy. No.9/1/A, Kothapet Rd, near SVC Cinema
+                Theatre, opp. PVT Market Building, Dilsukhnagar, Hyderabad,
+                Telangana 500036
+              </p>
+              <p>
+                Phone:
+                <a
+                  href="tel:+91 6305 279018"
+                  style="color: white; text-decoration: none"
+                  >+91 63052 79018</a
+                >
+              </p>
+              <p style="margin-top: 2px; color: red">Open 24 hours</p>
+            </div>
+            <div style="display: flex; gap: 20px">
+              <a
+                href="https://maps.app.goo.gl/2EHhCmxJeLCiTL22A"
+                class="btn"
+                target="_blank"
+                >Location</a
+              >
+              <a href="https://omnihospitals.in/" class="btn" target="_blank"
+                >Visit Website</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="width: 20rem">
+          <img
+            src="https://img.etimg.com/thumb/msid-98975531,width-300,height-225,imgsize-101780,resizemode-75/hospital-new.jpg"
+            class="card-img-top"
+            alt="Hospital 1"
+            style="height: 200px"
+          />
+          <div class="card-body">
+            <h3 class="card-title" style="text-transform: capitalize">
+              Ozone Hospitals @ Alwal
+            </h3>
+            <div class="card-text">
+              <p>
+                Bungalow no 56, opp. Rythu Bazar Parking, G V Reddy Colony,
+                Alwal, Secunderabad, Telangana 500015
+              </p>
+              <p>
+                Phone:
+                <a
+                  href="tel:+91 6305 279018"
+                  style="color: white; text-decoration: none"
+                  >+91 63052 79018</a
+                >
+              </p>
+              <p style="margin-top: 2px; color: red">Open 24 hours</p>
+            </div>
+            <div style="display: flex; gap: 20px">
+              <a
+                href="https://maps.app.goo.gl/tSqgnxqsc7UkPoMC7"
+                class="btn"
+                target="_blank"
+                >Location</a
+              >
+              <a href="http://ozonehospitals.com/" class="btn" target="_blank"
+                >Visit Website</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="card" style="width: 20rem">
+          <img
+            src="https://img.etimg.com/thumb/msid-98975531,width-300,height-225,imgsize-101780,resizemode-75/hospital-new.jpg"
+            class="card-img-top"
+            alt="Hospital 1"
+            style="height: 200px"
+          />
+          <div class="card-body">
+            <h3 class="card-title" style="text-transform: capitalize">
+              Rainbow Children's Hospital
+            </h3>
+            <div class="card-text">
+              <p>
+                H.No. 3-7-222 & 3-7-223, Sy.No.51 to 54, Police Station Main
+                Road, Karkhana, Secunderabad, Telangana 500009
+              </p>
+              <p>
+                Phone:
+                <a
+                  href="tel:+91 6305 279018"
+                  style="color: white; text-decoration: none"
+                  >+91 63052 79018</a
+                >
+              </p>
+              <p style="margin-top: 2px; color: red">Open 24 hours</p>
+            </div>
+            <div style="display: flex; gap: 20px">
+              <a
+                href="https://maps.app.goo.gl/7DeHxwn8xcKHWgrF9"
+                class="btn"
+                target="_blank"
+                >Location</a
+              >
+              <a
+                href="https://www.rainbowhospitals.in/our-centre/hyderabad/secunderabad?utm_source=gmb&utm_medium=organic&utm_campaign=rainbow_hospitals"
+                class="btn"
+                target="_blank"
+                >Visit Website</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="width: 20rem">
+          <img
+            src="https://img.etimg.com/thumb/msid-98975531,width-300,height-225,imgsize-101780,resizemode-75/hospital-new.jpg"
+            class="card-img-top"
+            alt="Hospital 1"
+            style="height: 200px"
+          />
+          <div class="card-body">
+            <h3 class="card-title" style="text-transform: capitalize">
+              Medicover Hospitals 
+            </h3>
+            <div class="card-text">
+              <p>
+                beside Shilparamam, opp. Hitex Charminar, Jubilee Enclave, HITEC
+                City, Hyderabad, Telangana 500081
+              </p>
+              <p>
+                Phone:
+                <a
+                  href="tel:+91 6305 279018"
+                  style="color: white; text-decoration: none"
+                  >+91 63052 79018</a
+                >
+              </p>
+              <p style="margin-top: 2px; color: red">Open 24 hours</p>
+            </div>
+            <div style="display: flex; gap: 20px">
+              <a
+                href="https://maps.app.goo.gl/4gW88wE1wcqnmJgj6"
+                class="btn"
+                target="_blank"
+                >Location</a
+              >
+              <a
+                href="https://www.medicoverhospitals.in/woman-and-child/"
+                class="btn"
+                target="_blank"
+                >Visit Website</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="width: 20rem">
+          <img
+            src="https://img.etimg.com/thumb/msid-98975531,width-300,height-225,imgsize-101780,resizemode-75/hospital-new.jpg"
+            class="card-img-top"
+            alt="Hospital 1"
+            style="height: 200px"
+          />
+          <div class="card-body">
+            <h3 class="card-title" style="text-transform: capitalize">
+              Continental Hospitals
+            </h3>
+            <div class="card-text">
+              <p>
+                Plot No 3, Road No. 2, Financial District, Gachibowli,
+                Nanakramguda, Telangana 500032
+              </p>
+              <p>
+                Phone:
+                <a
+                  href="tel:+91 6305 279018"
+                  style="color: white; text-decoration: none"
+                  >+91 63052 79018</a
+                >
+              </p>
+              <p style="margin-top: 2px; color: red">Open 24 hours</p>
+            </div>
+            <div style="display: flex; gap: 20px">
+              <a
+                href="https://maps.app.goo.gl/921wFwej7DfnP35YA"
+                class="btn"
+                target="_blank"
+                >Location</a
+              >
+              <a
+                href="https://www.continentalhospitals.com/"
+                class="btn"
+                target="_blank"
+                >Visit Website</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz4fnFO9gybBogGzeyR8b5y6bFz3yH6D6/zB1mIb27r1L6U3slSkSXK6Bq"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-ho+pPjHOpXlE8EN6BOh6Qv4K2kP77p3qk5Bux/c3OZdYG/7Cn40vlOL5FO9JGp6x"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function searchHospitals() {
+        const input = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const cards = document.querySelectorAll(".card");
+        cards.forEach((card) => {
+          const title = card
+            .querySelector(".card-title")
+            .textContent.toLowerCase();
+          if (title.includes(input)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+            // alert("No result found");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
