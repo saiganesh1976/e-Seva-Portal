@@ -199,28 +199,26 @@ router.get("/bloodbank", (req, res) => {
   res.render("bloodbank");
 });
 
-router.post("/bloodbank", (req, res) => {
-  const newDonor = new Donor({
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    phonenumber: req.body.phonenumber,
-    email: req.body.email,
-    bloodgroup: req.body.bloodgroup,
-    gender: req.body.gender,
-    street: req.body.street,
-    city: req.body.city,
-    state: req.body.state,
-  });
+router.get("/needblood", async (req, res) => {
+  try {
+    const donors = await Donor.find();
+    res.render("needblood", { donors });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error fetching donor data." });
+  }
+});
 
-  newDonor.save((err) => {
-    if (err) {
-      console.log(err);
-      res.status(500).send("Error saving to database");
-    } else {
-      console.log("New donor saved successfully");
-      res.status(200).send("Registration Successful");
-    }
-  });
+
+router.post("/bloodbank", async (req, res) => {
+  try {
+    const newDonor = new Donor(req.body);
+    await newDonor.save();
+    res.status(200).json({ message: "Applied Successfully!" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error saving data." });
+  }
 });
 
 router.get("/routerly", (req, res) => {
@@ -229,19 +227,6 @@ router.get("/routerly", (req, res) => {
 
 router.get("/needblood", (req, res) => {
   res.render("needblood");
-});
-
-router.get("/search", (req, res) => {
-  const bloodGroup = req.query.bloodgroup;
-
-  Donor.find({ bloodgroup: bloodGroup }, (err, foundDonors) => {
-    if (err) {
-      console.log(err);
-      res.status(500).send("Error fetching donors");
-    } else {
-      res.render("donors", { donors: foundDonors });
-    }
-  });
 });
 
 router.get("/petrolbook", (req, res) => {

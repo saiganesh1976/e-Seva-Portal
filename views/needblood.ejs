@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bloodbank | Need Blood</title>
+    <title>Blood ATM | Bloodbank</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="./Images/favicon.png" type="image/x-icon" />
     <link
@@ -12,77 +12,99 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+
+    <style>
+      .search-bar {
+        margin-top: 50px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .search-input {
+        width: 50%;
+        padding: 10px;
+        margin-right: 5px;
+        outline: none;
+        border: 2px solid white;
+        border-radius: 20px;
+      }
+      @media screen and (max-width: 768px) {
+        .search-bar {
+          display: block;
+        }
+        .search-input
+        {
+          width: 90%;
+        }
+      }
+      </style>
   </head>
   <body>
     <div class="wrapper-section" style="height: 100vh">
       <h1 class="title">Blood ATM</h1>
-      <div class="Fastag-form">
-        <form
-          class="row g-3 needs-validation"
-          id="bloodForm"
-          novalidate
-          method="post"
-          action="/search"
-        >
-          <div class="col-md-4">
-            <label for="validationCustom02" class="form-label"
-              >Patient Name</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              id="patientName"
-              placeholder="Enter your Patient name"
-              required
-            />
-            <div class="valid-feedback">Please Enter a valid Name!</div>
-          </div>
-          <div class="col-md-4">
-            <label for="bloodGroup" class="form-label">Blood Group</label>
-            <select id="bloodGroup" class="form-select" required>
-              <option selected>Choose...</option>
-              <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
-            </select>
-          </div>
-          <div class="col-md-4">
-            <label for="validationCustom04" class="form-label"
-              >Number of units</label
-            >
-            <input
-              type="number"
-              class="form-control"
-              id="numberOfUnits"
-              placeholder="Units"
-              required
-            />
-            <div class="valid-feedback">Please Enter a Valid amount!</div>
-          </div>
-
-          <div class="col-12">
-            <button class="btn" type="submit" id="getDonors">Get Donors</button>
-          </div>
-        </form>
-        <div id="donorsList" class="mt-4"></div>
+      
+      <!-- Search bar -->
+      <div class="search-bar" style="margin: 20px 0;">
+        <label for="Search" style="color: aquamarine; font-size: 20px;">Search</label>
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          onkeyup="filterTable()"
+          placeholder="Search for blood group.."
+          class="form-control"
+        />
       </div>
+      
+      <table class="table table-striped table-dark" style="margin-top: 30px; text-align: center;">
+        <thead>
+          <tr style="background-color: aquamarine;">
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Blood Group</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody">
+          <% donors.forEach(donor => { %>
+          <tr>
+            <td><%= donor.firstname %></td>
+            <td><%= donor.lastname %></td>
+            <td><%= donor.bloodgroup %></td>
+            <td><%= donor.gender %></td>
+            <td>
+              <a href="tel:<%= donor.phonenumber %>" style="text-decoration: none; color: aliceblue;"><%= donor.phonenumber %></a>
+            </td>
+            <td><a href="mailto:<%= donor.email %>" style="text-decoration: none; color: aliceblue;"><%= donor.email %></a></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
     </div>
+    <script>
+      function filterTable() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.querySelector("table");
+        tr = table.getElementsByTagName("tr");
 
-    <div>
-      <h1>Donors Available for Blood Group <%= bloodGroup %></h1>
-      <ul>
-        <% donors.forEach(donor => { %>
-        <li>
-          <%= donor.firstname %> <%= donor.lastname %> - <%= donor.phonenumber
-          %>
-        </li>
-        <% }); %>
-      </ul>
-    </div>
+        for (i = 1; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[2];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+    </script>
   </body>
 </html>

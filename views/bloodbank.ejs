@@ -93,13 +93,7 @@
       </div>
       <div class="services-content-section">
         <div class="blood-form">
-          <form
-            class="row g-3"
-            method="post"
-            action="/bloodbank"
-            id="bloodBankForm"
-            novalidate
-          >
+          <form class="row g-3" id="bloodBankForm" novalidate>
             <div class="col-md-4">
               <label for="inputFName" class="form-label">First Name</label>
               <input
@@ -247,6 +241,36 @@
       </div>
     </div>
 
+    <script>
+      document
+        .getElementById("bloodBankForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const formData = new FormData(event.target);
+          const bookingData = Object.fromEntries(formData.entries());
+
+          try {
+            const response = await fetch("/bloodbank", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(bookingData),
+            });
+
+            if (response.ok) {
+              const data = await response.json();
+              alert(`Registered Successful! `);
+            } else {
+              throw new Error("Registration Failed");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert("An error occurred during Registration. Please try again.");
+          }
+        });
+    </script>
     <!-- Footer Section -->
     <div class="footer-wrapper">
       <div class="footer-main">
