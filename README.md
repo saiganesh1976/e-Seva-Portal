@@ -1,11 +1,30 @@
-﻿# e-Seva-Portal
-## A Web Portal for Emergency Safety and Service Response Team using NodeJS, ExpressJS and MongoDB
+# A Web Portal for Emergency Safety and Service Response Team using NodeJS, ExpressJS, and MongoDB
 
-The purpose of this project is to develop a comprehensive website dedicated to providing quick
-and easy access to essential emergency services. This platform will serve as a vital resource, offering
-users information and support for services such as Fast Tag, blood banks, nearest hospitals,
-ambulance services, police stations, and petrol stations. By centralizing these critical resources, the
-website aims to enhance community safety and well-being, ensuring that help is readily accessible
-in times of need. The user-friendly interface and real-time updates will facilitate swift and efficient
-access to necessary services, making it an indispensable tool for individuals during
-emergencies
+This repository contains the code for the 'e Seva Safety and Services Portal'. This project integrates various safety and service features such as Medical, Police, Fire, Petrol and vehicle repair, FASTag, and Blood ATM services.
+
+## Features
+1. Find nearest hospitals using GPS
+2. Petrol and vehicle repair services
+3. Police and fire services
+4. FASTag services
+5. Blood ATM
+
+## Installation
+
+### Prerequisites
+1. Node.js (v14.x or higher)
+2. MongoDB (v4.x or higher)
+3. Git
+
+### Steps
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/saiganesh1976/e-Seva-Portal.git
+   cd e-Seva-Portal
+2. **Install dependencies:**
+    ```bash
+   npm install
+3. **Run the server:**
+    ```bash
+    node src/node.js
