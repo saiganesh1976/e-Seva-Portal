@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 // Establish MongoDB connection
-mongoose.connect("mongodb://localhost:27017/E_seva", {
+mongoose.connect("mongodb+srv://saiganesh1976:21311a1976_rsg@cluster0.vosja.mongodb.net/E_seva", {
   serverSelectionTimeoutMS: 3000,
 });
 
@@ -35,7 +35,7 @@ app.use(
 
 app.use("/", routes);
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server is running on port http://localhost:${port}/`);
 });

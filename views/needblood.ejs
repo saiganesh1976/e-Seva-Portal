@@ -34,20 +34,21 @@
         .search-bar {
           display: block;
         }
-        .search-input
-        {
+        .search-input {
           width: 90%;
         }
       }
-      </style>
+    </style>
   </head>
   <body>
     <div class="wrapper-section" style="height: 100vh">
       <h1 class="title">Blood ATM</h1>
-      
+
       <!-- Search bar -->
-      <div class="search-bar" style="margin: 20px 0;">
-        <label for="Search" style="color: aquamarine; font-size: 20px;">Search</label>
+      <div class="search-bar" style="margin: 20px 0">
+        <label for="Search" style="color: aquamarine; font-size: 20px"
+          >Search</label
+        >
         <input
           type="text"
           id="searchInput"
@@ -57,10 +58,13 @@
           class="form-control"
         />
       </div>
-      
-      <table class="table table-striped table-dark" style="margin-top: 30px; text-align: center;">
+
+      <table
+        class="table table-striped table-dark"
+        style="margin-top: 30px; text-align: center"
+      >
         <thead>
-          <tr style="background-color: aquamarine;">
+          <tr style="background-color: aquamarine">
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Blood Group</th>
@@ -77,9 +81,19 @@
             <td><%= donor.bloodgroup %></td>
             <td><%= donor.gender %></td>
             <td>
-              <a href="tel:<%= donor.phonenumber %>" style="text-decoration: none; color: aliceblue;"><%= donor.phonenumber %></a>
+              <a
+                href="tel:<%= donor.phonenumber %>"
+                style="text-decoration: none; color: aliceblue"
+                ><%= donor.phonenumber %></a
+              >
             </td>
-            <td><a href="mailto:<%= donor.email %>" style="text-decoration: none; color: aliceblue;"><%= donor.email %></a></td>
+            <td>
+              <a
+                href="mailto:<%= donor.email %>"
+                style="text-decoration: none; color: aliceblue"
+                ><%= donor.email %></a
+              >
+            </td>
           </tr>
           <% }) %>
         </tbody>
